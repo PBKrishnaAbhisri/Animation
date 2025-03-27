@@ -15,7 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hero Section Animations
     gsap.from('.hero-content', {
         opacity: 0,
-        y: 100,
+        x: -100,
+        duration: 1.5,
+        ease: "power3.out"
+    });
+
+    gsap.from('.hero-image', {
+        opacity: 0,
+        x: 100,
         duration: 1.5,
         ease: "power3.out"
     });
