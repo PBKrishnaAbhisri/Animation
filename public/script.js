@@ -158,20 +158,82 @@ function createParticles() {
 
 // Enhanced scroll animations
 function initScrollAnimations() {
-    gsap.utils.toArray('.card').forEach((card, i) => {
+    // Service Cards Animation
+    gsap.from('.service-grid', {
+        scrollTrigger: {
+            trigger: '.service-grid',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse'
+        },
+        opacity: 0,
+        x: -100,
+        duration: 1,
+        ease: 'power3.out',
+        onComplete: () => {
+            gsap.utils.toArray('.service-card').forEach((card, i) => {
+                gsap.from(card, {
+                    opacity: 0,
+                    x: -50,
+                    duration: 0.6,
+                    delay: i * 0.2,
+                    ease: 'power2.out'
+                });
+            });
+        }
+    });
+
+    // Feature Cards Animation
+    gsap.utils.toArray('.feature-card').forEach((card, i) => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
-                start: "top 80%",
-                end: "bottom 20%",
-                toggleActions: "play none none reverse"
+                start: 'top 80%'
             },
             opacity: 0,
-            y: 50,
-            rotation: 15,
-            duration: 1,
-            delay: i * 0.2
+            x: 100,
+            duration: 0.8,
+            delay: i * 0.3,
+            ease: 'power2.out'
         });
+    });
+
+    // Gallery Items Animation
+    gsap.from('.gallery-grid', {
+        scrollTrigger: {
+            trigger: '.gallery-grid',
+            start: 'top 80%'
+        },
+        opacity: 0,
+        x: -100,
+        duration: 1,
+        ease: 'power3.out',
+        onComplete: () => {
+            gsap.utils.toArray('.gallery-item').forEach((item, i) => {
+                gsap.from(item, {
+                    opacity: 0,
+                    x: -50,
+                    duration: 0.6,
+                    delay: i * 0.2,
+                    ease: 'power2.out'
+                });
+            });
+        }
+    });
+}
+
+// Reveal sections on scroll
+function revealSections() {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < windowHeight - elementVisible) {
+            element.classList.add('active');
+        }
     });
 }
 
@@ -191,14 +253,22 @@ function initParallaxEffect() {
     });
 }
 
-// Initialize all animations
-document.addEventListener("DOMContentLoaded", () => {
-    createParticles();
-    initScrollAnimations();
-    initParallaxEffect();
+// Initialize shape animations
+function initShapeAnimations() {
+    const shapes = document.querySelectorAll('.rotating-shape');
     
-    // Hover effects for geometric shapes
-    document.querySelectorAll('.geometric > div').forEach(shape => {
+    shapes.forEach(shape => {
+        // Random rotation speed for each shape
+        const speed = 5 + Math.random() * 5;
+        
+        gsap.to(shape, {
+            rotation: 360,
+            duration: speed,
+            repeat: -1,
+            ease: "none"
+        });
+
+        // Add hover animation
         shape.addEventListener('mouseenter', () => {
             gsap.to(shape, {
                 scale: 1.2,
@@ -206,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ease: "power2.out"
             });
         });
-        
+
         shape.addEventListener('mouseleave', () => {
             gsap.to(shape, {
                 scale: 1,
@@ -214,5 +284,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 ease: "power2.in"
             });
         });
+    });
+}
+
+// Initialize all animations
+document.addEventListener("DOMContentLoaded", () => {
+    createParticles();
+    initScrollAnimations();
+    initParallaxEffect();
+    
+    initShapeAnimations();
+    
+    // Initialize reveal animations
+    window.addEventListener('scroll', revealSections);
+    revealSections(); // Initial check
+    
+    // Enhanced background animation
+    gsap.to('body', {
+        backgroundPosition: '100% 50%',
+        duration: 15,
+        repeat: -1,
+        yoyo: true,
+        ease: 'none'
     });
 });
