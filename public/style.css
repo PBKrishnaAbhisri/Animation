@@ -685,3 +685,118 @@ body {
         opacity: 1;
     }
 }
+
+/* Services Section */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.service-box {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    min-height: 300px;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #4ecdc4;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    background: linear-gradient(
+        135deg,
+        rgba(78, 205, 196, 0.95),
+        rgba(255, 107, 107, 0.95)
+    );
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-content h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    transform: translateX(-30px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+}
+
+.service-details {
+    transform: translateX(-30px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+.service-details p {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.service-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-details li {
+    color: white;
+    margin: 8px 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Service Box Hover Effects */
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.service-box:hover .service-icon {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.service-box:hover .service-content {
+    transform: translateX(0);
+}
+
+.service-box:hover .service-content h3,
+.service-box:hover .service-details {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-box {
+        min-height: 250px;
+    }
+}
