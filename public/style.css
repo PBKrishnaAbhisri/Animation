@@ -1,0 +1,7 @@
+body, html { margin: 0; padding: 0; overflow-x: hidden; font-family: Arial, sans-serif; }
+.hero { display: flex; justify-content: center; align-items: center; height: 100vh; background: #000; color: white; font-size: 3rem; text-transform: uppercase; }
+.animated-text { opacity: 0; }
+.parallax { height: 400px; background: url('assets/bg.jpg') fixed center/cover; }
+.geometric { height: 400px; display: flex; justify-content: center; align-items: center; background: #f4f4f4; }
+.circle { width: 100px; height: 100px; background: red; border-radius: 50%; animation: move 3s infinite alternate; }
+@keyframes move { from { transform: translateY(0); } to { transform: translateY(-20px); } }
