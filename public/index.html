@@ -8,35 +8,101 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <section class="hero">
-        <h1 class="animated-text">Creative Design</h1>
+    <nav class="main-nav">
+        <div class="nav-content">
+            <div class="logo">ArtisticWeb</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#gallery">Gallery</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="animated-text">Creative Design</h1>
+            <p class="hero-subtitle">Transforming Ideas into Digital Reality</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+        <div class="floating-particles"></div>
     </section>
-    <div class="parallax"></div>
-    <section class="geometric">
-        <div class="circle"></div>
-        <div class="square"></div>
-        <div class="triangle"></div>
+
+    <section id="about" class="about-section">
+        <div class="content-wrapper">
+            <h2 class="section-title">Our Expertise</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="circle pulse"></div>
+                    <h3>Web Design</h3>
+                    <p>Modern and responsive designs</p>
+                </div>
+                <div class="service-card">
+                    <div class="square"></div>
+                    <h3>Development</h3>
+                    <p>Cutting-edge technologies</p>
+                </div>
+                <div class="service-card">
+                    <div class="triangle spin"></div>
+                    <h3>UI/UX Design</h3>
+                    <p>User-centered experiences</p>
+                </div>
+            </div>
+        </div>
     </section>
-    <section class="interactive">
-        <button class="glow-button">Click Me!</button>
+
+    <section id="services" class="features-section">
+        <div class="content-wrapper">
+            <h2 class="section-title">Our Services</h2>
+            <div class="animated-cards">
+                <div class="feature-card">
+                    <h3>Web Development</h3>
+                    <p>Custom solutions for your business</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Digital Marketing</h3>
+                    <p>Reach your target audience</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Brand Identity</h3>
+                    <p>Stand out from the competition</p>
+                </div>
+            </div>
+        </div>
     </section>
-    <section class="scroll-section">
-        <p class="scroll-text">Scroll Down for More</p>
+
+    <section id="gallery" class="gallery">
+        <div class="content-wrapper">
+            <h2 class="section-title">Our Work</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+            </div>
+        </div>
     </section>
-    
-    <!-- New Content Section -->
-    <section class="new-content">
-        <h2 class="fade-in-text">Welcome to the Future of Design</h2>
-        <p class="slide-in-text">Experience the best animations and typography effects.</p>
-        <div class="floating-box"></div>
-    </section>
-    
-    <!-- Image Gallery -->
-    <section class="gallery">
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-    </section>
+
+    <footer class="main-footer">
+        <div class="content-wrapper">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@artisticweb.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#">Twitter</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="script.js"></script>
